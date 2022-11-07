@@ -20,23 +20,15 @@ Servir chaud ou froid avec des petites sauces tomates aux herbes, ou sauces yaou
 ]
 */
 
-const countWordOccurence = (sentence: string, wordTracker: string) => {
-  let counter = 0;
-
-  sentence.replace(',', '').split(' ').forEach(word => {
-    console.log(word)
-    if(word === wordTracker) {
-      counter += 1;
-    }
-  })
-
-  return {word : wordTracker, occurences: counter};
+const countWordOccurence = (sentence: string) => {
+  return sentence.replace(',', '').split(' ').reduce((acc: any, curr) => {
+    return acc[curr] ? ++acc[curr] : acc[curr] = 1, acc
+  }, {});
 };
 
 
 const sentence = prompt('Enter a sentence') as string;
-const wordTacker = prompt('Enter a word to search') as string;
 
-const result = countWordOccurence(sentence, wordTacker);
+const result = countWordOccurence(sentence);
 
 console.log(result);
