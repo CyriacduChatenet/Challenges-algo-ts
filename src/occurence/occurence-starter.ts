@@ -29,8 +29,8 @@ const countWordOccurence = (sentence: string, wordTracker: string) => {
       counter += 1;
     }
   })
-  
-  return `There is ${counter} occurence(s) of ${wordTracker} in this sentence`;
+
+  return {word : wordTracker, occurences: counter};
 };
 
 
